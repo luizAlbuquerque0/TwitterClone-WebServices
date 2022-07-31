@@ -10,7 +10,9 @@ namespace TwitterClone.Core.Entites
     {
         public string Content { get; private set; }
         public int IdPost { get; private set; }
+        public Post Post { get; private set; }
         public int IdCommentOwner { get; private set; }
+        public User CommentOwner { get; private set; }
         public DateTime CreatedAt { get; private set; }
     }
 }
