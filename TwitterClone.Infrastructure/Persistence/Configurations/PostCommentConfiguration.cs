@@ -12,10 +12,9 @@ namespace TwitterClone.Infrastructure.Configurations
                 .HasKey(p => p.Id);
 
             builder
-                .HasOne(p=> p.Post)
-                .WithMany(p=> p.Comments)
-                .HasForeignKey(p=> p.IdPost)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(p => p.Post)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(p => p.IdPost);
 
             builder
                 .HasOne(p => p.CommentOwner)
