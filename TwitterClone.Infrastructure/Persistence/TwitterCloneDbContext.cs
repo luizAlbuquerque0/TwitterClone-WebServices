@@ -9,7 +9,7 @@ using TwitterClone.Core.Entites;
 
 namespace TwitterClone.Infrastructure.Persistence
 {
-    internal class TwitterCloneDbContext : DbContext
+    public class TwitterCloneDbContext : DbContext
     {
         public TwitterCloneDbContext(DbContextOptions<TwitterCloneDbContext> options) : base(options)
         {
