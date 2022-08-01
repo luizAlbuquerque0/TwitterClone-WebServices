@@ -15,7 +15,7 @@ namespace TwitterClone.Application.Queries.GetUser
         {
             var user = await _userRepository.GetUser(request.Id);
 
-            if (user = null) return null;
+            if (user == null) return null;
 
             var userViewModel = new UserViewModel(user.FullName, user.Email);
 
