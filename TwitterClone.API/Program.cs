@@ -1,10 +1,13 @@
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using TwitterClone.API.Filters;
 using TwitterClone.Application.Commands.CreatePost;
+using TwitterClone.Application.Validators;
 using TwitterClone.Core.Repositories;
 using TwitterClone.Core.Services;
 using TwitterClone.Infrastructure.AuthServices;
@@ -22,9 +25,9 @@ builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddControllers(option => option.Filters.Add(typeof(ValidationFilter)))
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
-
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

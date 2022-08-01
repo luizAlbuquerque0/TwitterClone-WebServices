@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using TwitterClone.Application.Commands.CreateUser;
 using TwitterClone.Application.Commands.LoginUser;
 using TwitterClone.Application.Queries.GetUser;
