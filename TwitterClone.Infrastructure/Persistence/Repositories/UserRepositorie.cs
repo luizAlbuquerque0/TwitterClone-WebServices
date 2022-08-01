@@ -18,7 +18,12 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
 
         public async Task<User> GetUser(int id)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(p => p.Id == id);
+            return await _dbContext.Users.SingleOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
+        {
+            return await _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email && u.Password == passwordHash);
         }
 
         public async Task SaveChangesAsync()

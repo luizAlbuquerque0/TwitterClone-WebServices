@@ -1,11 +1,14 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TwitterClone.Application.Commands.CreateUser;
+using TwitterClone.Application.Commands.LoginUser;
 using TwitterClone.Application.Queries.GetUser;
 
 namespace TwitterClone.API.Controllers
 {
     [Route("api/users")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -27,11 +30,23 @@ namespace TwitterClone.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command)
         {
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id}, command);
+        }
+
+        [HttpPut("login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
+        {
+            var loginUserViewModel = await _mediator.Send(command);
+
+            if(loginUserViewModel == null) return BadRequest();
+
+            return Ok(loginUserViewModel);
         }
     }
 }

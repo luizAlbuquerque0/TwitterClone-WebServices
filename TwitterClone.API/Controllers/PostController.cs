@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TwitterClone.Application.Commands.CreateComment;
 using TwitterClone.Application.Commands.CreatePost;
@@ -8,6 +9,7 @@ using TwitterClone.Application.Queries.GetPostById;
 namespace TwitterClone.API.Controllers
 {
     [Route("api/posts")]
+    [Authorize]
     public class PostController : ControllerBase
     {
         private readonly IMediator _mediator;
