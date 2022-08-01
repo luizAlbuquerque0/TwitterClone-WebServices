@@ -2,6 +2,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TwitterClone.Application.Commands.CreatePost;
 using TwitterClone.Core.Repositories;
+using TwitterClone.Core.Services;
+using TwitterClone.Infrastructure.AuthServices;
 using TwitterClone.Infrastructure.Persistence;
 using TwitterClone.Infrastructure.Persistence.Repositories;
 
@@ -14,6 +16,7 @@ builder.Services.AddMediatR(typeof(CreatePostCommand));
 
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 
