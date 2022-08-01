@@ -1,4 +1,6 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TwitterClone.Application.Commands.CreatePost;
 using TwitterClone.Core.Repositories;
 using TwitterClone.Infrastructure.Persistence;
 using TwitterClone.Infrastructure.Persistence.Repositories;
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<TwitterCloneDbContext>(options => options.UseSqlSe
 
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddMediatR(typeof(CreatePostCommand));
 
 
 builder.Services.AddControllers();

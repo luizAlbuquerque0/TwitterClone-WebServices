@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TwitterClone.Application\TwitterClone.Application.csproj" />
     <ProjectReference Include="..\TwitterClone.Core\TwitterClone.Core.csproj" />
     <ProjectReference Include="..\TwitterClone.Infrastructure\TwitterClone.Infrastructure.csproj" />
   </ItemGroup>
