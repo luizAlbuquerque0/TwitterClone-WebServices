@@ -9,7 +9,7 @@ namespace TwitterClone.Application.Commands.CreatePost
 {
     public class CreatePostCommand : IRequest<int>
     {
-        public string Content { get; private set; }
-        public int IdOwner { get; private set; }
+        public string Content { get;  set; }
+        public int IdOwner { get;  set; }
     }
 }
