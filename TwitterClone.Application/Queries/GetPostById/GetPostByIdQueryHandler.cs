@@ -1,24 +1,25 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TwitterClone.Core.Entites;
+using TwitterClone.Application.ViewModels;
 using TwitterClone.Core.Repositories;
 
 namespace TwitterClone.Application.Queries.GetPostById
 {
-    public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, Post>
+    public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDetailsViewModel>
     {
         private readonly IPostRepository _postRepository;
         public GetPostByIdQueryHandler(IPostRepository postRepository)
         {
             _postRepository = postRepository;
         }
-        public Task<Post> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
+        public async Task<PostDetailsViewModel> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
         {
-            //Repository
+            var post = await _postRepository.GetDetailsByIdAsync(request.Id);
+
+            if(post == null) return null;
+
+            var postViewModel = new PostDetailsViewModel(post.Content, post.PostOwner, post.Comments);
+
+            return postViewModel;
         }
     }
 }

@@ -1,15 +1,16 @@
 ﻿using MediatR;
 using TwitterClone.Application.ViewModels;
 
-namespace TwitterClone.Application.Queries.GetPostById
+namespace TwitterClone.Application.Queries.GetUser
 {
-    public class GetPostByIdQuery : IRequest<PostDetailsViewModel>
+    public class GetUserQuery : IRequest<UserViewModel>
     {
-        public GetPostByIdQuery(int id)
+        public GetUserQuery(int id)
         {
             Id = id;
         }
 
         public int Id { get; private set; }
+
     }
 }
