@@ -22,6 +22,8 @@ namespace TwitterClone.Application.Commands.CreatePost
 
             await _postRepository.CreatePostAsync(post);
 
+            await _postRepository.SaveChangesAsync();
+
             return post.Id;
         }
     }

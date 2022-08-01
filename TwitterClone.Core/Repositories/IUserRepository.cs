@@ -7,5 +7,6 @@ namespace TwitterClone.Core.Repositories
         Task CreateUserAsync(User user);
         Task<User> GetUser(int id);
 
+        Task SaveChangesAsync();
     }
 }

@@ -17,6 +17,8 @@ namespace TwitterClone.Application.Commands.CreateComment
 
             await _postRepository.AddCommentAsync(comment);
 
+            await _postRepository.SaveChangesAsync();
+
             return Unit.Value;
         }
     }

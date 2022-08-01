@@ -32,5 +32,10 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
         {
             return await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public async Task SaveChangesAsync()
+        {
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
