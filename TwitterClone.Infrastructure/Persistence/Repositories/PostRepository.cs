@@ -1,4 +1,5 @@
-﻿using TwitterClone.Core.Entites;
+﻿using Microsoft.EntityFrameworkCore;
+using TwitterClone.Core.Entites;
 using TwitterClone.Core.Repositories;
 
 namespace TwitterClone.Infrastructure.Persistence.Repositories
@@ -20,6 +21,16 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
         {
             await _dbContext.Posts.AddAsync(post);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<Post>> GetAllPostAsync()
+        {
+            return await _dbContext.Posts.ToListAsync();
+        }
+
+        public async Task<Post> GetDetailsByIdAsync(int id)
+        {
+            return await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }

@@ -6,5 +6,7 @@ namespace TwitterClone.Core.Repositories
     {
         Task CreatePostAsync(Post post);
         Task AddCommentAsync(PostComment postComment);
+        Task<List<Post>> GetAllPostAsync();
+        Task<Post> GetDetailsByIdAsync(int id);
     }
 }
