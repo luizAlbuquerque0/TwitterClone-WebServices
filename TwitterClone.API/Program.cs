@@ -10,11 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var conectionString = builder.Configuration.GetConnectionString("TwitterCloneCs");
 builder.Services.AddDbContext<TwitterCloneDbContext>(options => options.UseSqlServer(conectionString));
+builder.Services.AddMediatR(typeof(CreatePostCommand));
 
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddMediatR(typeof(CreatePostCommand))
 
 
 builder.Services.AddControllers();
