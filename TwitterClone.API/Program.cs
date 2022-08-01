@@ -14,7 +14,7 @@ builder.Services.AddDbContext<TwitterCloneDbContext>(options => options.UseSqlSe
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddMediatR(typeof(CreatePostCommand));
+builder.Services.AddMediatR(typeof(CreatePostCommand))
 
 
 builder.Services.AddControllers();
