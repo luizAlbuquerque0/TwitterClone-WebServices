@@ -10,7 +10,7 @@ var conectionString = builder.Configuration.GetConnectionString("TwitterCloneCs"
 builder.Services.AddDbContext<TwitterCloneDbContext>(options => options.UseSqlServer(conectionString));
 
 builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<IUserRepository, IUserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 builder.Services.AddControllers();

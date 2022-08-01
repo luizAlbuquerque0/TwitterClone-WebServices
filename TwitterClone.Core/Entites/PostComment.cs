@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TwitterClone.Core.Entites
+﻿namespace TwitterClone.Core.Entites
 {
     public class PostComment : BaseEntity
     {
-        public PostComment(string content, int idPost, int idCommentOwener)
+        public PostComment(string content, int idPost, int idCommentOwner)
         {
             Content = content;
             IdPost = idPost;
-            IdCommentOwner = idCommentOwener;
+            IdCommentOwner = idCommentOwner;
         }
 
         public string Content { get; private set; }

@@ -3,10 +3,10 @@ using TwitterClone.Core.Repositories;
 
 namespace TwitterClone.Infrastructure.Persistence.Repositories
 {
-    public class UserRepositorie : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly TwitterCloneDbContext _dbContext;
-        public UserRepositorie(TwitterCloneDbContext dbContext)
+        public UserRepository(TwitterCloneDbContext dbContext)
         {
             _dbContext = dbContext;
         }
