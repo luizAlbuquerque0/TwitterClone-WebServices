@@ -16,5 +16,10 @@
         public DateTime CreatedAt { get; private set; }
         public List<PostComment> Comments { get; private set; }
 
+        public void Update(string content)
+        {
+            Content = content;
+        }
+
     }
 }

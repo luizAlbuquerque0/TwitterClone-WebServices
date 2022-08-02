@@ -30,7 +30,7 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
 
         public async Task<Post> GetDetailsByIdAsync(int id)
         {
-            return await _dbContext.Posts.FirstOrDefaultAsync(p => p.Id == id);
+            return await _dbContext.Posts.SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task SaveChangesAsync()

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TwitterClone.Application.Commands.CreateComment;
 using TwitterClone.Application.Commands.CreatePost;
+using TwitterClone.Application.Commands.UpdatePost;
 using TwitterClone.Application.Queries.GetAllPosts;
 using TwitterClone.Application.Queries.GetPostById;
 
@@ -19,9 +20,9 @@ namespace TwitterClone.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllPosts(string query)
+        public async Task<IActionResult> GetAllPosts()
         {
-            var getPostQuery = new GetAllPostQuery(query);
+            var getPostQuery = new GetAllPostQuery();
 
             var posts = await _mediator.Send(getPostQuery);
 
@@ -46,6 +47,14 @@ namespace TwitterClone.API.Controllers
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdatePostCommand command)
+        {
+            await _mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpPost("{id}/comments")]
