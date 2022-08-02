@@ -18,7 +18,7 @@ namespace TwitterClone.Application.Commands.CreatePost
         }
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            var post = new Post(request.Content, request.IdOwner);
+            var post = new Post(request.Content, request.IdOwner, request.OwnerName);
 
             await _postRepository.CreatePostAsync(post);
 

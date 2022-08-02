@@ -2,16 +2,18 @@
 {
     public class Post : BaseEntity
     {
-        public Post(string content, int idPostOwner)
+        public Post(string content, int idPostOwner, string ownerName)
         {
             Content = content;
             IdPostOwner = idPostOwner;
             CreatedAt = DateTime.Now;
             Comments = new List<PostComment>();
+            OwnerName = ownerName;
         }
 
         public string Content { get; private set; }
         public int IdPostOwner { get; private set; }
+        public string OwnerName { get; private set; }
         public User PostOwner { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public List<PostComment> Comments { get; private set; }

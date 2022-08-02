@@ -15,7 +15,7 @@ namespace TwitterClone.Application.Queries.GetAllPosts
         {
             var posts = await _postRepository.GetAllPostAsync();
 
-            var projectsViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.PostOwner, p.CreatedAt)).ToList();
+            var projectsViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.OwnerName, p.CreatedAt)).ToList();
 
             return projectsViewModel;
         }
