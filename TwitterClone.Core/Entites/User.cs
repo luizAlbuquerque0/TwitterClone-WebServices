@@ -7,7 +7,6 @@
             FullName = fullName;
             Email = email;
             Password = password;
-
             Posts = new List<Post>();
         }
 
@@ -16,6 +15,11 @@
         public string Password { get; private set; }
         public List<Post> Posts { get; private set; }
         public List<PostComment> Comments { get; private set; }
+        public string Description { get; private set; }
 
+        public void AddDescription(string description)
+        {
+            Description = description;
+        }
     }
 }

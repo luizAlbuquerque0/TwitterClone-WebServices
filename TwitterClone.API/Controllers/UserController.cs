@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using TwitterClone.Application.Commands.CreateUser;
 using TwitterClone.Application.Commands.LoginUser;
+using TwitterClone.Application.Commands.UserUpdateProfile;
 using TwitterClone.Application.Queries.GetUser;
 
 namespace TwitterClone.API.Controllers
@@ -29,6 +30,15 @@ namespace TwitterClone.API.Controllers
 
             return Ok(user);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProfile( [FromBody] UpdateProfileCommand command)
+        {
+            await _mediator.Send(command);
+
+            return NoContent();
+        }
+
 
         [HttpPost]
         [AllowAnonymous]
