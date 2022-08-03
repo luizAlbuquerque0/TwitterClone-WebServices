@@ -30,7 +30,16 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
 
         public async Task<Post> GetDetailsByIdAsync(int id)
         {
-            return await _dbContext.Posts.SingleOrDefaultAsync(p => p.Id == id);
+            var post = await _dbContext.Posts.SingleOrDefaultAsync(p => p.Id == id);
+
+            var comments = await _dbContext.PostComments
+                .Where(p => p.IdPost == post.Id)
+                .Include(p => p.Post)
+                .ToListAsync();
+                
+            post.AddComments(comments);
+
+            return post;
         }
 
         public async Task<List<Post>> GetUserPostsAsync(int id)

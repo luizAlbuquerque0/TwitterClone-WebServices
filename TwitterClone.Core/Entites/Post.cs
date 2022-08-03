@@ -23,5 +23,9 @@
             Content = content;
         }
 
+        public void AddComments(List<PostComment> comments)
+        {
+            Comments = comments;
+        }
     }
 }
