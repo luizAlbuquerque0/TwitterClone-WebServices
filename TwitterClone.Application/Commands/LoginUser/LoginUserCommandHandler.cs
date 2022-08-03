@@ -29,7 +29,7 @@ namespace TwitterClone.Application.Commands.LoginUser
 
             var token = _authService.GenereteJwtToken(user.Email);
 
-            return new LoginUserViewModel(user.Email, token);
+            return new LoginUserViewModel(user.Email, token, user.Id);
 
             
         }
