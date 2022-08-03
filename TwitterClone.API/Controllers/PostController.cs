@@ -6,6 +6,7 @@ using TwitterClone.Application.Commands.CreatePost;
 using TwitterClone.Application.Commands.UpdatePost;
 using TwitterClone.Application.Queries.GetAllPosts;
 using TwitterClone.Application.Queries.GetPostById;
+using TwitterClone.Application.Queries.GetUserPosts;
 
 namespace TwitterClone.API.Controllers
 {
@@ -39,6 +40,16 @@ namespace TwitterClone.API.Controllers
             if (post == null) return NotFound();
 
             return Ok(post);
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> GetUserPosts(int id)
+        {
+            var query = new GetUserPostsQuery(id);
+
+            var posts = await _mediator.Send(query);
+
+            return Ok(posts);
         }
 
         [HttpPost]

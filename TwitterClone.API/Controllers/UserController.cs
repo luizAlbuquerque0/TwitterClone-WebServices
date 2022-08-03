@@ -6,6 +6,7 @@ using TwitterClone.Application.Commands.CreateUser;
 using TwitterClone.Application.Commands.LoginUser;
 using TwitterClone.Application.Commands.UserUpdateProfile;
 using TwitterClone.Application.Queries.GetUser;
+using TwitterClone.Application.Queries.GetUserPosts;
 
 namespace TwitterClone.API.Controllers
 {
