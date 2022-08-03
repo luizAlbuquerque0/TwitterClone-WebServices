@@ -23,6 +23,14 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task DeletePostAsync(int id)
+        {
+            var post = await _dbContext.Posts.SingleOrDefaultAsync(p => p.Id == id);
+
+            //_dbContext.Attach(post);
+            _dbContext.Remove(post);
+        }
+
         public async Task<List<Post>> GetAllPostAsync()
         {
             return await _dbContext.Posts.ToListAsync();

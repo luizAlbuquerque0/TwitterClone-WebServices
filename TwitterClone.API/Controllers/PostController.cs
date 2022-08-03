@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TwitterClone.Application.Commands.CreateComment;
 using TwitterClone.Application.Commands.CreatePost;
+using TwitterClone.Application.Commands.DeletePost;
 using TwitterClone.Application.Commands.UpdatePost;
 using TwitterClone.Application.Queries.GetAllPosts;
 using TwitterClone.Application.Queries.GetPostById;
@@ -40,6 +41,16 @@ namespace TwitterClone.API.Controllers
             if (post == null) return NotFound();
 
             return Ok(post);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var command = new DeletePostCommand(id);
+
+            await _mediator.Send(command);
+
+            return NoContent();
         }
 
         [HttpGet("user/{id}")]

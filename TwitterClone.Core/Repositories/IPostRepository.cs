@@ -9,6 +9,7 @@ namespace TwitterClone.Core.Repositories
         Task<List<Post>> GetAllPostAsync();
         Task<Post> GetDetailsByIdAsync(int id);
         Task<List<Post>> GetUserPostsAsync(int id);
+        Task DeletePostAsync(int id);
         Task SaveChangesAsync();
     }
 }
