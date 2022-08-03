@@ -15,6 +15,8 @@ namespace TwitterClone.Application.Commands.UserUpdateProfile
             var user = await _userRepsoitory.GetUser(request.Id);
 
             user.AddDescription(request.Description);
+            user.AddBirthDate(request.BirthDate);
+            user.AddHomeTown(request.HomeTown);
 
             await _userRepsoitory.SaveChangesAsync();
 

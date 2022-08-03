@@ -17,7 +17,7 @@ namespace TwitterClone.Application.Queries.GetUser
 
             if (user == null) return null;
 
-            var userViewModel = new UserViewModel(user.FullName, user.Email);
+            var userViewModel = new UserViewModel(user.FullName, user.Email,user.CreatedAt, user.BirthDate, user.HomeTown, user.Description);
 
             return userViewModel;
         }

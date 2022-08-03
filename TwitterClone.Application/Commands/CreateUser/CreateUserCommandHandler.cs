@@ -20,6 +20,8 @@ namespace TwitterClone.Application.Commands.CreateUser
 
             var user = new User(request.FullName, request.Email, passwordHash);
             user.AddDescription("");
+            user.AddBirthDate("");
+            user.AddHomeTown("");
 
             await _userRepository.CreateUserAsync(user);
 
