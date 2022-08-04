@@ -1,16 +1,17 @@
 ﻿using MediatR;
+using TwitterClone.Application.ViewModels;
 using TwitterClone.Core.Repositories;
 
 namespace TwitterClone.Application.Commands.UserUpdateProfile
 {
-    public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand, Unit>
+    public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand, UserViewModel>
     {
         private readonly IUserRepository _userRepsoitory;
         public UpdateProfileCommandHandler(IUserRepository userRepository)
         {
             _userRepsoitory = userRepository;
         }
-        public async Task<Unit> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+        public async Task<UserViewModel> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
         {
             var user = await _userRepsoitory.GetUser(request.Id);
 
@@ -20,7 +21,9 @@ namespace TwitterClone.Application.Commands.UserUpdateProfile
 
             await _userRepsoitory.SaveChangesAsync();
 
-            return Unit.Value;
+            var userViewModel = new UserViewModel(user.FullName, user.Email, user.CreatedAt.ToString("d"), user.BirthDate, user.HomeTown, user.Description);
+
+            return userViewModel;
         }
     }
 }

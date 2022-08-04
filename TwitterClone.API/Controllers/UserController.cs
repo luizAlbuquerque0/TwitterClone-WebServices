@@ -35,9 +35,9 @@ namespace TwitterClone.API.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProfile( [FromBody] UpdateProfileCommand command)
         {
-            await _mediator.Send(command);
+            var user = await _mediator.Send(command);
 
-            return NoContent();
+            return Ok(user);
         }
 
 
