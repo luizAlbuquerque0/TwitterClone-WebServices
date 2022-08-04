@@ -16,10 +16,10 @@
         public string Password { get; private set; }
         public List<Post> Posts { get; private set; }
         public List<PostComment> Comments { get; private set; }
-        public string Description { get; private set; }
+        public string? Description { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public string BirthDate { get; private set; }
-        public string HomeTown { get; private set; }
+        public string? BirthDate { get; private set; }
+        public string? HomeTown { get; private set; }
 
         public void AddDescription(string description)
         {

@@ -19,9 +19,7 @@ namespace TwitterClone.Application.Commands.CreateUser
             var passwordHash = _authService.ComputeSha256Hash(request.Password);
 
             var user = new User(request.FullName, request.Email, passwordHash);
-            user.AddDescription("");
-            user.AddBirthDate("");
-            user.AddHomeTown("");
+            
 
             await _userRepository.CreateUserAsync(user);
 
