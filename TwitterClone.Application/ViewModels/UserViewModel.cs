@@ -2,7 +2,7 @@
 {
     public class UserViewModel
     {
-        public UserViewModel(string fullName, string email, DateTime createdAt, string birthDate, string homeTown, string description)
+        public UserViewModel(string fullName, string email, string createdAt, string birthDate, string homeTown, string description)
         {
             FullName = fullName;
             Email = email;
