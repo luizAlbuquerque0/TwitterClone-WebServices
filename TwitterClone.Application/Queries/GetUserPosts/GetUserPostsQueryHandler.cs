@@ -15,7 +15,7 @@ namespace TwitterClone.Application.Queries.GetUserPosts
         {
             var posts = await _postRepository.GetUserPostsAsync(request.Id);
 
-            var postViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.OwnerName, p.CreatedAt)).ToList();
+            var postViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.OwnerName, p.CreatedAt.ToString("d"))).ToList();
 
             return postViewModel;
         }

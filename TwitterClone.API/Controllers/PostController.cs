@@ -66,9 +66,9 @@ namespace TwitterClone.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody] CreatePostCommand command)
         {
-            var id = await _mediator.Send(command);
+            var post = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id = id }, command);
+            return CreatedAtAction(nameof(GetById), new { id = post.Id}, post);
         }
 
         [HttpPut]

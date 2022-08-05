@@ -14,10 +14,12 @@ namespace TwitterClone.Application.Queries.GetAllPosts
         public async Task<List<PostViewModel>> Handle(GetAllPostQuery request, CancellationToken cancellationToken)
         {
             var posts = await _postRepository.GetAllPostAsync();
+            
 
-            var projectsViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.OwnerName, p.CreatedAt)).ToList();
+            var postsViewModel = posts.Select(p => new PostViewModel(p.Id, p.Content, p.OwnerName, p.CreatedAt.ToString("d"))).ToList();
+            Console.WriteLine("teste");
 
-            return projectsViewModel;
+            return postsViewModel;
         }
     }
 }
