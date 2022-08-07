@@ -21,7 +21,7 @@ namespace TwitterClone.Application.Commands.CreatePost
             await _postRepository.SaveChangesAsync();
 
 
-            return new PostViewModel(post.Id, post.Content, post.OwnerName, post.CreatedAt.ToString("p"));
+            return new PostViewModel(post.Id, post.Content, post.OwnerName, post.CreatedAt.ToString("G"));
         }
     }
 }

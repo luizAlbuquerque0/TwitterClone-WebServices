@@ -50,7 +50,7 @@ namespace TwitterClone.API.Controllers
 
             await _mediator.Send(command);
 
-            return NoContent();
+            return Ok(new {id=id});
         }
 
         [HttpGet("user/{id}")]

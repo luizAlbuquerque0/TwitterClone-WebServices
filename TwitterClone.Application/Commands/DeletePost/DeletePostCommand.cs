@@ -2,7 +2,7 @@
 
 namespace TwitterClone.Application.Commands.DeletePost
 {
-    public class DeletePostCommand : IRequest<Unit>
+    public class DeletePostCommand : IRequest<int>
     {
         public DeletePostCommand(int id)
         {
