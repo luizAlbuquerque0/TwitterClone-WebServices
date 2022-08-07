@@ -74,9 +74,9 @@ namespace TwitterClone.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdatePostCommand command)
         {
-            await _mediator.Send(command);
+           var res =  await _mediator.Send(command);
 
-            return NoContent();
+            return Ok(res);
         }
 
         [HttpPost("{id}/comments")]
