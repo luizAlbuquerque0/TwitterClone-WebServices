@@ -8,6 +8,7 @@ using TwitterClone.Application.Commands.UpdatePost;
 using TwitterClone.Application.Queries.GetAllPosts;
 using TwitterClone.Application.Queries.GetPostById;
 using TwitterClone.Application.Queries.GetUserPosts;
+using TwitterClone.Application.ViewModels;
 
 namespace TwitterClone.API.Controllers
 {

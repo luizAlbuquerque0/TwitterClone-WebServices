@@ -20,6 +20,7 @@
         public DateTime CreatedAt { get; private set; }
         public string? BirthDate { get; private set; }
         public string? HomeTown { get; private set; }
+        public string? Profilepic { get; private set; }
 
         public void AddDescription(string description)
         {
@@ -34,6 +35,11 @@
         public void AddHomeTown(string homeTown)
         {
             HomeTown = homeTown;
+        }
+
+        public void AddProfilePic(string profilepic)
+        {
+            Profilepic = profilepic;
         }
     }
 }

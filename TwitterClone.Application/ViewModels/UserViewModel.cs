@@ -2,7 +2,7 @@
 {
     public class UserViewModel
     {
-        public UserViewModel(string fullName, string email,string createdAt,string birthDate, string homeTown, string description)
+        public UserViewModel(string fullName, string email,string createdAt, string birthDate, string homeTown, string description, string profilePic)
         {
             FullName = fullName;
             Email = email;
@@ -10,6 +10,7 @@
             BirthDate = birthDate;
             HomeTown = homeTown;
             Description = description;
+            ProfilePic = profilePic;
         }
 
         public string FullName { get; private set; }
@@ -18,6 +19,8 @@
         public string BirthDate { get; private set; }
         public string HomeTown { get; private set; }
         public string Description { get; private set; }
+        public string ProfilePic { get; private set; }
+
 
 
     }

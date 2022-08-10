@@ -18,10 +18,11 @@ namespace TwitterClone.Application.Commands.UserUpdateProfile
             user.AddDescription(request.Description);
             user.AddBirthDate(request.BirthDate);
             user.AddHomeTown(request.HomeTown);
+            user.AddProfilePic(request.ProfilePic);
 
             await _userRepsoitory.SaveChangesAsync();
 
-            var userViewModel = new UserViewModel(user.FullName, user.Email, user.CreatedAt.ToString("d"), user.BirthDate, user.HomeTown, user.Description);
+            var userViewModel = new UserViewModel(user.FullName, user.Email, user.CreatedAt.ToString("d"), user.BirthDate, user.HomeTown, user.Description, user.Profilepic);
 
             return userViewModel;
         }

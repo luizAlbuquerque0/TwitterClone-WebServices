@@ -8,5 +8,6 @@ namespace TwitterClone.Application.Commands.CreatePost
         public string Content { get;  set; }
         public int IdOwner { get;  set; }
         public string OwnerName { get; set; }
+        public string OwnerProfilePic { get; set; }
     }
 }

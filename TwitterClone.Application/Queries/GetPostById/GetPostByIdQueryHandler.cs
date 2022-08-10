@@ -17,7 +17,7 @@ namespace TwitterClone.Application.Queries.GetPostById
 
             if(post == null) return null;
 
-            var postViewModel = new PostDetailsViewModel(post.Content, post.PostOwner, post.Comments);
+            var postViewModel = new PostDetailsViewModel(post.Content, post.PostOwner, post.Comments,post.OwnerProfilePic,post.IdPostOwner);
 
             return postViewModel;
         }

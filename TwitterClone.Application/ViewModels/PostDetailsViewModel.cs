@@ -9,16 +9,20 @@ namespace TwitterClone.Application.ViewModels
 {
     public class PostDetailsViewModel
     {
-        public PostDetailsViewModel(string content, User postOwner, List<PostComment> comments)
+        public PostDetailsViewModel(string content, User postOwner, List<PostComment> comments, string ownerProfilePic, int ownerId)
         {
             Content = content;
             PostOwner = postOwner;
             Comments = comments;
+            OwnerProfilePic = ownerProfilePic;
+            OwnerId = ownerId;
         }
 
         public string Content { get; private set; }
         public User PostOwner { get; private set; }
         public List<PostComment> Comments { get; private set; }
+        public string  OwnerProfilePic { get; private set; }
+        public int OwnerId { get; private set; }
 
     }
 }

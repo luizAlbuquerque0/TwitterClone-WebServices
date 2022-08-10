@@ -9,5 +9,6 @@ namespace TwitterClone.Application.Commands.UserUpdateProfile
         public string Description { get; set; }
         public string BirthDate { get; set; }
         public string HomeTown { get; set; }
+        public string ProfilePic { get; set; }
     }
 }

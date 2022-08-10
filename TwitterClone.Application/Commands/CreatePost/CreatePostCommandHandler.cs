@@ -14,14 +14,14 @@ namespace TwitterClone.Application.Commands.CreatePost
         }
         public async Task<PostViewModel> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            var post = new Post(request.Content, request.IdOwner, request.OwnerName);
+            var post = new Post(request.Content, request.IdOwner, request.OwnerName,request.OwnerProfilePic);
 
             await _postRepository.CreatePostAsync(post);
 
             await _postRepository.SaveChangesAsync();
 
 
-            return new PostViewModel(post.Id, post.Content, post.OwnerName, post.CreatedAt.ToString("G"));
+            return new PostViewModel(post.Id, post.Content, post.OwnerName, post.CreatedAt.ToString("G"),post.OwnerProfilePic);
         }
     }
 }
