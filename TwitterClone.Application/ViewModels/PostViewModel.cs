@@ -4,14 +4,14 @@ namespace TwitterClone.Application.ViewModels
 {
     public class PostViewModel
     {
-        public PostViewModel(int id, string content, string ownerName, string createdAt, string owenerProfilePic, int owneerId)
+        public PostViewModel(int id, string content, string ownerName, string createdAt, string owenerProfilePic, int ownerId)
         {
             Id = id;
             Content = content;
             OwnerName = ownerName;
             CreatedAt = createdAt;
             OwenerProfilePic = owenerProfilePic;
-            OwneerId = owneerId;
+            OwnerId = ownerId;
         }
 
         public int Id { get; private set; }
@@ -19,6 +19,6 @@ namespace TwitterClone.Application.ViewModels
         public string OwnerName { get; private set; }
         public string CreatedAt { get; private set; }
         public string OwenerProfilePic { get; private set; }
-        public int OwneerId { get; private set; }
+        public int OwnerId { get; private set; }
     }
 }
