@@ -13,7 +13,7 @@ namespace TwitterClone.Application.Commands.CreateComment
         }
         public async Task<Unit> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
         {
-            var comment = new PostComment(request.Content, request.IdPost, request.IdCommentOwner);
+            var comment = new PostComment(request.Content, request.IdPost, request.IdCommentOwner, request.CommentOwner);
 
             await _postRepository.AddCommentAsync(comment);
 

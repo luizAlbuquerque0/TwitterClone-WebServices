@@ -42,7 +42,6 @@ namespace TwitterClone.Infrastructure.Persistence.Repositories
 
             var comments = await _dbContext.PostComments
                 .Where(p => p.IdPost == post.Id)
-                .Include(p => p.Post)
                 .ToListAsync();
                 
             post.AddComments(comments);

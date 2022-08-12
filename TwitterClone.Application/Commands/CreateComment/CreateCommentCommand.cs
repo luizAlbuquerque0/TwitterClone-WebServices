@@ -7,5 +7,6 @@ namespace TwitterClone.Application.Commands.CreateComment
         public string Content { get;  set; }
         public int IdPost { get;  set; }
         public int IdCommentOwner { get;  set; }
+        public string CommentOwner { get; set; }
     }
 }
